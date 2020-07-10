@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Card, CardContent, CardActions, Typography, Button } from '@material-ui/core';
+import { Card, CardContent, CardActions, Typography, Button, Grid } from '@material-ui/core';
 
 function Products(props) {
     // list all the products that belong to the
@@ -15,18 +15,27 @@ function Products(props) {
             productsHTML.push(
                 <Card key={i} className="Card" >
                     <CardContent >
-                        <Typography className="card-title" color="textSecondary" gutterBottom>
-                            {props.products[i].name}
-                        </Typography>
-                        <Typography component="h5" >
-                            {props.products[i].description}
-                        </Typography>
-                        <Typography >
-                            ${props.products[i].price}
-                        </Typography>
+                        <Grid container spacing={3}>
+                            <Grid item xs={9}>
+                                <Typography className="card-title" color="textPrimary" component="h2" gutterBottom>
+                                    {props.products[i].name}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs justify="flex-end">
+                                <Typography className="product-price" color="textSecondary" component="h5">
+                                    ${props.products[i].price}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12} >
+                                <Typography color="textSecondary" component="p">
+                                    {props.products[i].description}
+                                </Typography>
+                            </Grid>
+                        </Grid>
                     </CardContent>
                     <CardActions >
-                        <Button size="small">Add to Cart</Button>
+                        <Button size="small" color="primary">Add to Cart</Button>
+                        <Button size="small" color="primary">View Details</Button>
                     </CardActions>
                 </Card>
             )
