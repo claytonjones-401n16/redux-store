@@ -9,7 +9,7 @@ function Categories(props) {
         categoriesHTML.push(
             <Button
                 key={i}
-                className={props.categories[i].name}
+                className={`${props.categories[i].name}-button`}
                 onClick={(e) => {
                     // change the current category
                     props.dispatch({

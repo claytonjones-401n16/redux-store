@@ -21,7 +21,7 @@ function Products(props) {
                                     {props.products[i].name}
                                 </Typography>
                             </Grid>
-                            <Grid item xs justify="flex-end">
+                            <Grid item xs>
                                 <Typography className="product-price" color="textSecondary" component="h5">
                                     ${props.products[i].price}
                                 </Typography>
