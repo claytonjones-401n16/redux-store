@@ -12,7 +12,7 @@ function ActiveCategory(props) {
 
 function mapStateToProps (state) {
   return {
-    currentCategory: state.currentCategory
+    currentCategory: state.categories.currentCategory
   }
 }
 

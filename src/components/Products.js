@@ -27,6 +27,11 @@ function Products(props) {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} >
+                                <Typography color="textPrimary" component="p">
+                                    Quantity: {props.products[i].stock}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12} >
                                 <Typography color="textSecondary" component="p">
                                     {props.products[i].description}
                                 </Typography>
@@ -34,7 +39,12 @@ function Products(props) {
                         </Grid>
                     </CardContent>
                     <CardActions >
-                        <Button size="small" color="primary">Add to Cart</Button>
+                        <Button size="small" color="primary" onClick={() => { 
+                            props.dispatch({
+                                type: 'ADD_TO_CART',
+                                payload: props.products[i]
+                            });
+                        }} disabled={props.products[i].stock < 1 ? true : false}>Add to Cart</Button>
                         <Button size="small" color="primary">View Details</Button>
                     </CardActions>
                 </Card>
@@ -51,30 +61,6 @@ function Products(props) {
     );
 }
 
-/*
-<Card className={classes.root}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-</Card>
-*/
-
 // connect() --> returns a function (assume it's called foo)
 // let foo = connect(mapStateToProps);
 // let connectedComponent = foo(Products)
@@ -82,8 +68,8 @@ function Products(props) {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.products,
-        currentCategory: state.currentCategory,
+        products: state.products.allProducts,
+        currentCategory: state.categories.currentCategory,
     };
 };
 

@@ -5,7 +5,7 @@ function Header(props) {
   return (
     <header>
       <h1>Our Store</h1>
-      <p>Cart ({props.cart})</p>
+      <p>Cart ({props.cart.cartCount})</p>
     </header>
   )
 }
