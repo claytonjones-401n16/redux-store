@@ -10,19 +10,22 @@ function SimpleCart(props) {
 
   props.cartContents.forEach((item, i) => {
     cartHTML.push(
-      <Grid container direction="row" justify="space-evenly" alignItems="center">
-        <Grid item key={i} xs={9}>
+      <Grid key={i} container direction="row" justify="space-evenly" alignItems="center">
+        <Grid item xs={9}>
           <Typography>
             {item.name}
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Button onClick={(e) => {
-            props.dispatch({
-              type: 'REMOVE_FROM_CART',
-              payload: item
-            })
-          }}>
+          <Button 
+            className="removeFromCartButton"
+            onClick={(e) => {
+              props.dispatch({
+                type: 'REMOVE_FROM_CART',
+                payload: item
+              })
+            }}
+          >
             <Delete />
           </Button>
         </Grid>

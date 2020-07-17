@@ -39,13 +39,22 @@ function Products(props) {
                         </Grid>
                     </CardContent>
                     <CardActions >
-                        <Button size="small" color="primary" onClick={() => { 
-                            props.dispatch({
-                                type: 'ADD_TO_CART',
-                                payload: props.products[i]
-                            });
-                        }} disabled={props.products[i].stock < 1 ? true : false}>Add to Cart</Button>
-                        <Button size="small" color="primary">View Details</Button>
+                        <Button 
+                            className="addToCartButton"
+                            size="small"
+                            color="primary"
+                            onClick={() => { 
+                                props.dispatch({
+                                    type: 'ADD_TO_CART',
+                                    payload: props.products[i]
+                                });
+                            }} 
+                            disabled={props.products[i].stock < 1 ? true : false}
+                        >Add to Cart</Button>
+                        <Button
+                            size="small"
+                            color="primary"
+                        >View Details</Button>
                     </CardActions>
                 </Card>
             )
