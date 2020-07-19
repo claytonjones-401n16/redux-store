@@ -7,10 +7,11 @@
 // useState(initState)
 // this.state = initState
 
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import cartReducer from './cartReducer';
 import categoriesReducer from './categoriesReducer';
 import productsReducer from './productsReducer';
+import thunk from './middleware/thunk';
 
 
 const reducers = combineReducers({
@@ -19,4 +20,4 @@ const reducers = combineReducers({
     products: productsReducer
 })
 
-export default createStore(reducers);
+export default createStore(reducers, applyMiddleware(thunk));
