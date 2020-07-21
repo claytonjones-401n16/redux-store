@@ -51,13 +51,9 @@ function Products(props) {
                             size="small"
                             color="primary"
                             onClick={() => { 
-                                // props.dispatch({
-                                //     type: 'ADD_TO_CART',
-                                //     payload: props.products[i]
-                                // });
                                 addToCart(props.products[i]);
                             }} 
-                            disabled={props.products[i].stock < 1 ? true : false}
+                            disabled={props.addButtonDisabled || props.products[i].stock < 1 ? true : false}
                         >Add to Cart</Button>
                         <Button
                             size="small"
@@ -86,6 +82,7 @@ function Products(props) {
 const mapStateToProps = (state) => {
     return {
         products: state.products.allProducts,
+        addButtonDisabled: state.products.addButtonDisabled,
         currentCategory: state.categories.currentCategory,
     };
 };

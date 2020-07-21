@@ -1,5 +1,6 @@
 export const initState = {
   allProducts: [],
+  addButtonDisabled: false
 };
 
 export default (state = initState, action) => {
@@ -31,6 +32,9 @@ export default (state = initState, action) => {
             break;
           }
         }
+        break;
+      case 'TOGGLE_ADD_BUTTONS':
+        newState = {...newState, addButtonDisabled: !newState.addButtonDisabled};
         break;
       default:
           break;

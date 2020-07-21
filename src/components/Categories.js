@@ -5,7 +5,6 @@ import { Button, ButtonGroup } from '@material-ui/core';
 import * as actions from '../store/categories-actions';
 
 function Categories(props) {
-    console.log('categories props', props);
 
     const {get, changeCategory} = props;
     
