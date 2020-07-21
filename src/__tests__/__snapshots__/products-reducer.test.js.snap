@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`products reducer should handle ADD_TO_CART 1`] = `
+Object {
+  "0": Object {
+    "name": "test",
+    "stock": 10,
+  },
+}
+`;
+
+exports[`products reducer should handle GET_PRODUCTS 1`] = `
+Object {
+  "allProducts": Array [
+    1,
+    2,
+    3,
+    4,
+  ],
+}
+`;
+
+exports[`products reducer should handle REMOVE_FROM_CART 1`] = `
+Object {
+  "0": Object {
+    "name": "test",
+    "stock": 10,
+  },
+}
+`;
+
+exports[`products reducer should return the initial state 1`] = `
+Object {
+  "allProducts": Array [],
+}
+`;

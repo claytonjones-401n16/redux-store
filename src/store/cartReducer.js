@@ -1,4 +1,4 @@
-const initState = {
+export const initState = {
   cartCount: 0,
   cartContents: [],
 }

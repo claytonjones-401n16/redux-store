@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`categories reducer should handle CHANGE_CATEGORY 1`] = `
+Object {
+  "allCategories": Array [],
+  "currentCategory": "cat1",
+}
+`;
+
+exports[`categories reducer should handle GET_CATEGORIES 1`] = `
+Object {
+  "allCategories": Array [
+    "cat1",
+    "cat2",
+    "cat3",
+  ],
+  "currentCategory": "",
+}
+`;
+
+exports[`categories reducer should return the initial state 1`] = `
+Object {
+  "allCategories": Array [],
+  "currentCategory": "",
+}
+`;
