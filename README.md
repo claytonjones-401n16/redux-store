@@ -2,6 +2,6 @@
 
 ## [Codesandbox](https://codesandbox.io/s/github/claytonjones-401n16/redux-store/tree/rtk)
 
-## [Deployed](https://inspiring-borg-82f096.netlify.app/)
+## [Deployed](https://nostalgic-noyce-638628.netlify.app/)
 
 ![UML](./public/assets/UML.png)
