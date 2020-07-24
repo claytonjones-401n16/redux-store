@@ -1,6 +1,7 @@
 export const initState = {
   allProducts: [],
-  addButtonDisabled: false
+  addButtonDisabled: false,
+  productToView: {}
 };
 
 export default (state = initState, action) => {
@@ -35,6 +36,9 @@ export default (state = initState, action) => {
         break;
       case 'TOGGLE_ADD_BUTTONS':
         newState = {...newState, addButtonDisabled: !newState.addButtonDisabled};
+        break;
+      case 'VIEW_ONE_PRODUCT':
+        newState = {...newState, productToView: {...action.payload}}
         break;
       default:
           break;

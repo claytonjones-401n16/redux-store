@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardActions, Typography, Button, Grid } from '@material-ui/core';
 import * as actions from '../store/products-actions';
 
@@ -55,10 +56,12 @@ function Products(props) {
                             }} 
                             disabled={props.addButtonDisabled || props.products[i].stock < 1 ? true : false}
                         >Add to Cart</Button>
-                        <Button
-                            size="small"
-                            color="primary"
-                        >View Details</Button>
+                        <Link to={`/product/${props.products[i]._id}`}>
+                            <Button
+                                size="small"
+                                color="primary"
+                            >View Details</Button>
+                        </Link>
                     </CardActions>
                 </Card>
             )

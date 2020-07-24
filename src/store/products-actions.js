@@ -33,3 +33,18 @@ const toggleAddButtons = () => {
     type: 'TOGGLE_ADD_BUTTONS'
   }
 }
+
+export const getOneProduct = (payload) => async dispatch => {
+  dispatch(viewOneProduct({}));
+
+  let results = await axios.get(`https://js-401-lab-07.herokuapp.com/api/v1/products/${payload}`);
+
+  dispatch(viewOneProduct(results.data));
+}
+
+const viewOneProduct = (payload) => {
+  return {
+    type: 'VIEW_ONE_PRODUCT',
+    payload
+  }
+}
