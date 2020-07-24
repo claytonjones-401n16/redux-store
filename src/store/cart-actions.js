@@ -7,6 +7,7 @@ export const removeFromCart = (payload) => {
     dispatch(actualRemove(payload));
   }
 }
+
 export const actualRemove = (payload) => {
   return {
     type: 'REMOVE_FROM_CART',

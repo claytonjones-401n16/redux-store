@@ -4,11 +4,11 @@ import { Grid, Typography, Button, Accordion, AccordionSummary, AccordionDetails
 import {Delete} from '@material-ui/icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import * as actions from '../store/cart-actions';
-
+import {removeFromCart} from '../rtk-store/cart-slice';
+import {remove} from '../rtk-store/products-slice';
 
 function SimpleCart(props) {
-  const {removeFromCart} = props;
+  const {removeFromCart, remove} = props;
 
   const styles = {
     simpleCart: {
@@ -30,11 +30,8 @@ function SimpleCart(props) {
           <Button 
             className="removeFromCartButton"
             onClick={(e) => {
-              // props.dispatch({
-              //   type: 'REMOVE_FROM_CART',
-              //   payload: item
-              // })
               removeFromCart(item);
+              remove(item);
             }}
           >
             <Delete />
@@ -69,8 +66,6 @@ function mapStateToProps(state) {
   }
 }
 
-const mapDispatchToProps = (dispatch, getState) => ({
-  removeFromCart: (data) => dispatch( actions.removeFromCart(data) ),
-});
+const mapDispatchToProps = {removeFromCart, remove};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SimpleCart)

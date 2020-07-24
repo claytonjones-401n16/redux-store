@@ -11,12 +11,14 @@ Object {
 
 exports[`products reducer should handle GET_PRODUCTS 1`] = `
 Object {
+  "addButtonDisabled": false,
   "allProducts": Array [
     1,
     2,
     3,
     4,
   ],
+  "productToView": Object {},
 }
 `;
 
@@ -31,6 +33,8 @@ Object {
 
 exports[`products reducer should return the initial state 1`] = `
 Object {
+  "addButtonDisabled": false,
   "allProducts": Array [],
+  "productToView": Object {},
 }
 `;

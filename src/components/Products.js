@@ -2,7 +2,9 @@ import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardActions, Typography, Button, Grid } from '@material-ui/core';
-import * as actions from '../store/products-actions';
+
+import {get, addToCart} from '../rtk-store/products-slice';
+import {add} from '../rtk-store/cart-slice';
 
 function Products(props) {
     // list all the products that belong to the
@@ -10,7 +12,7 @@ function Products(props) {
 
     // only show the products that belong to the current category
 
-    const {get, addToCart} = props;
+    const {get, addToCart, add} = props;
 
     useEffect(() => {
         get();
@@ -53,6 +55,7 @@ function Products(props) {
                             color="primary"
                             onClick={() => { 
                                 addToCart(props.products[i]);
+                                add(props.products[i]);
                             }} 
                             disabled={props.addButtonDisabled || props.products[i].stock < 1 ? true : false}
                         >Add to Cart</Button>
@@ -90,9 +93,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch, getState) => ({
-    get: (data) => dispatch( actions.get(data) ),
-    addToCart: (data) => dispatch( actions.addToCart(data) ),
-});
+const mapDispatchToProps = {get, addToCart, add};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

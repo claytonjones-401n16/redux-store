@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import store from './store';
+import rtkStore from './rtk-store';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -15,7 +16,7 @@ import ShoppingCart from './components/ShoppingCart';
 
 function App() {
     return (
-        <Provider store={store}>
+        <Provider store={rtkStore}>
             <div className='App'>
                 <BrowserRouter>
                     <Header />

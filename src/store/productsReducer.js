@@ -13,9 +13,6 @@ export default (state = initState, action) => {
       case 'GET_PRODUCTS':
         newState.allProducts = [...action.payload];
         break;
-      case 'ADD_PRODUCT':
-          newState.allProducts.push(action.payload);
-          break;
       case 'ADD_TO_CART':
           for (let i = 0; i < newState.allProducts.length; i++) {
             if (action.payload.name === newState.allProducts[i].name) {

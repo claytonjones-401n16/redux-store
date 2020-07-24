@@ -2,7 +2,8 @@ import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Button, ButtonGroup } from '@material-ui/core';
 
-import * as actions from '../store/categories-actions';
+
+import {get, changeCategory} from '../rtk-store/categories-slice';
 
 function Categories(props) {
 
@@ -46,12 +47,10 @@ function Categories(props) {
 const mapStateToProps = (state) => {
     return {
         categories: state.categories.allCategories,
+
     };
 };
 
-const mapDispatchToProps = (dispatch, getState) => ({
-    get: (data) => dispatch( actions.get(data) ),
-    changeCategory: (data) => dispatch( actions.changeCategory(data))
-  })
+const mapDispatchToProps = {get, changeCategory}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

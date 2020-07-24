@@ -1,8 +1,12 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import { getOneProduct, addToCart } from '../store/products-actions';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SimpleCart from './SimpleCart';
+
+// import { getOneProduct, addToCart } from '../store/products-actions';
+import { getOneProduct, addToCart } from '../rtk-store/products-slice';
+import { add } from '../rtk-store/cart-slice';
+
 
 import {
   Grid, 
@@ -18,7 +22,7 @@ import {
 
 function ProductDetails(props) {
 
-  const {getOneProduct, productToView, addToCart} = props;
+  const {getOneProduct, productToView, addToCart, add} = props;
   const id = props.match.params.id;
 
   useEffect(() => {
@@ -81,7 +85,8 @@ function ProductDetails(props) {
             variant='contained'
             disabled={props.addButtonDisabled || productToView.stock < 1 ? true : false}
             onClick={(e) => {
-              addToCart(productToView)
+              addToCart(productToView);
+              add(productToView);
             }}
           >ADD TO CART</Button>
         </Grid>
@@ -167,10 +172,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  getOneProduct: (id) => {dispatch(getOneProduct(id))},
-  addToCart: (item) => {dispatch(addToCart(item))}
-});
+const mapDispatchToProps = {addToCart, getOneProduct, add};
 
 /*
 const mapStateToProps = (state) => {
