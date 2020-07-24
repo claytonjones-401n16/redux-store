@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import { getOneProduct } from '../store/products-actions';
+import { getOneProduct, addToCart } from '../store/products-actions';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import {
@@ -17,7 +17,7 @@ import {
 
 function ProductDetails(props) {
 
-  const {getOneProduct, productToView} = props;
+  const {getOneProduct, productToView, addToCart} = props;
   const id = props.match.params.id;
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function ProductDetails(props) {
                 </Grid>
                 <Grid item xs={6}>
                   <Typography color='textSecondary' variant='body1' style={styles.stock}>
-                    {`Stock: ${productToView.stock}`}
+                    {`Stock: ${productToView.stock || ''}`}
                   </Typography>
                 </Grid>
                 <Grid item xs={6}>
@@ -71,7 +71,15 @@ function ProductDetails(props) {
           </Card>
         </Grid>
         <Grid item xs={12}>
-          <Button color='primary' fullWidth='true' variant='contained'>BUY</Button>
+          <Button 
+            color='primary'
+            fullWidth='true'
+            variant='contained'
+            disabled={props.addButtonDisabled || productToView.stock < 1 ? true : false}
+            onClick={(e) => {
+              addToCart(productToView)
+            }}
+          >ADD TO CART</Button>
         </Grid>
         <Grid item xs={12}>
           <Typography variant='h5'>
@@ -150,12 +158,29 @@ function ProductDetails(props) {
 
 const mapStateToProps = (state) => {
   return {
-    productToView: state.products.productToView
+    productToView: state.products.productToView,
+    addButtonDisabled: state.products.addButtonDisabled
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  getOneProduct: (id) => {dispatch(getOneProduct(id))}
+  getOneProduct: (id) => {dispatch(getOneProduct(id))},
+  addToCart: (item) => {dispatch(addToCart(item))}
 });
+
+/*
+const mapStateToProps = (state) => {
+    return {
+        products: state.products.allProducts,
+        addButtonDisabled: state.products.addButtonDisabled,
+        currentCategory: state.categories.currentCategory,
+    };
+};
+
+const mapDispatchToProps = (dispatch, getState) => ({
+    get: (data) => dispatch( actions.get(data) ),
+    addToCart: (data) => dispatch( actions.addToCart(data) ),
+});
+*/
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

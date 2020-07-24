@@ -24,6 +24,9 @@ export default (state = initState, action) => {
               break;
             }
           }
+          if (newState.productToView.name && newState.productToView.name === action.payload.name) {
+            newState.productToView = {...newState.productToView, stock: newState.productToView.stock - 1}
+          }
           break;
       case 'REMOVE_FROM_CART':
         for (let i = 0; i < newState.allProducts.length; i++) {
