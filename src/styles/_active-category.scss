@@ -1,0 +1,13 @@
+.active-category {
+  height: 200px;
+  width: 400px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+  }
+}

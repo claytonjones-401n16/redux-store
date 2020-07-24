@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cart reducer should handle ADD_TO_CART 1`] = `
+Object {
+  "cartContents": Array [
+    Object {
+      "name": "testProduct",
+    },
+  ],
+  "cartCount": 1,
+}
+`;
+
+exports[`cart reducer should handle REMOVE_FROM_CART 1`] = `
+Object {
+  "cartContents": Array [
+    Object {
+      "name": "test",
+    },
+  ],
+  "cartCount": 1,
+}
+`;
+
+exports[`cart reducer should return init state 1`] = `
+Object {
+  "cartContents": Array [],
+  "cartCount": 0,
+}
+`;

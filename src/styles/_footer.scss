@@ -1,0 +1,30 @@
+footer {
+  height: 10vh;
+  background-color: #f1f1f1;
+  // color: $white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+  #social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  img {
+    // background-color: #f1f1f1;
+    padding: 2px;
+    margin: 0 1rem;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: rgba(63, 81, 181, 0.5);
+    }
+  }
+}

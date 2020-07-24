@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cart actions creates REMOVE_FROM_CART after API call 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "_id": 1234,
+    },
+    "type": "REMOVE_FROM_CART",
+  },
+]
+`;
+
+exports[`categories actions creates GET_CATEGORIES after API call 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      "cat1",
+      "cat2",
+    ],
+    "type": "GET_CATEGORIES",
+  },
+]
+`;
+
+exports[`products actions creates GET_PRODUCTS after API call 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      "products",
+      "more products",
+    ],
+    "type": "GET_PRODUCTS",
+  },
+]
+`;
