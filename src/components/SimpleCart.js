@@ -10,6 +10,12 @@ import * as actions from '../store/cart-actions';
 function SimpleCart(props) {
   const {removeFromCart} = props;
 
+  const styles = {
+    simpleCart: {
+      margin: '1rem'
+    }
+  }
+
   let cartHTML = [];
 
   props.cartContents.forEach((item, i) => {
@@ -39,7 +45,7 @@ function SimpleCart(props) {
   })
 
   return (
-    <Accordion>
+    <Accordion style={styles.simpleCart}>
       <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"

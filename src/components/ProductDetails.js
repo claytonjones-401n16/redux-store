@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import { getOneProduct, addToCart } from '../store/products-actions';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import SimpleCart from './SimpleCart';
 
 import {
   Grid, 
@@ -40,7 +41,10 @@ function ProductDetails(props) {
     }
   }
 
-  return (
+  return (<>
+      <Grid container justify='flex-end' alignItems='center'>
+        <SimpleCart />
+      </Grid>
       <Grid container spacing={2} justify='center' alignItems='center' style={styles.gridContainer}>
         <Grid item xs={12}>
           <Card style={styles.card}>
@@ -153,7 +157,7 @@ function ProductDetails(props) {
           </Accordion>
         </Grid>
       </Grid>
-  )
+  </>)
 }
 
 const mapStateToProps = (state) => {
